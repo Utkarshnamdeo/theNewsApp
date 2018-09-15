@@ -4,11 +4,11 @@
 The Application is created in [Angular 6.1.0](https://angular.io) (Javascript Framework)
 
 # Demo
-    [The News App](https://)
+    [The News App](https://utkarshnamdeo.github.io/theNewsApp/)
 
 ## Libraries Used
 
-    [Angular Material](https://material.angular.io)
+    [Angular Material 6.4.7](https://material.angular.io)
 
 ## Development server
 
