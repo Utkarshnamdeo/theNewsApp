@@ -1,0 +1,83 @@
+.sidenav-container {
+  height: 100%;
+  .sidenav {
+    width: 250px;
+    top: 80px;
+    .side-nav-list {
+      padding-top: 70px;
+    }
+  }
+  .app-toolbar {
+    height: 80px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    z-index: 9999 !important;
+    color: #fff;
+    .toolbar-toggle-button {
+      width: 50px;
+    }
+    .toolbar-content {
+      display: flex;
+      justify-content: space-between;
+      width: calc(100% - 50px);
+      .app-logo {
+        display: flex;
+        span{
+          font-family: 'Open Sans';
+          font-weight: 600;
+          letter-spacing: 0.1rem;
+          align-self: center;
+        }
+        
+      }
+      .search-field {
+        width: 40%;
+        .search-form-field {
+          width: 100%;
+          /deep/.mat-form-field-wrapper {
+            padding: 0;
+            margin: 0;
+            /deep/.mat-form-field-flex{
+              /deep/.mat-form-field-infix {
+                padding: 0.7rem 0;
+              }
+            }
+          }
+        }
+      }
+      .filter-buttons {
+        display: flex;
+        justify-content: space-between;
+        .country-filter {
+          display: flex;
+          cursor: pointer;
+          /deep/.mat-button {
+            /deep/.mat-button-wrapper {
+              display:flex;
+              .filter-item-image {
+                padding: 0 5px 0 0;
+                img {
+                  width:12px;
+                  height:12px;
+                }
+              }
+              .filter-item-title {
+                padding: 0 0 0 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
+.mat-drawer-container {
+  background-color: #fff;
+  color: rgba(0,0,0,.87);
+}

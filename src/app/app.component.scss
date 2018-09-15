@@ -1,0 +1,28 @@
+.main-container {
+    margin-top: 80px;
+    .inner-container {
+        /deep/.mat-tab-group {
+            /deep/.mat-tab-header {
+                border:0;
+            }
+        }
+    }
+}
+/deep/.mat-ink-bar {
+    display: none;
+}
+
+/deep/.mat-tab-label {
+    font-weight: bold;
+    font-size: larger;
+    color: #00000070;
+    letter-spacing: 0.1rem;        
+}
+
+/deep/.mat-tab-label-active {
+    font-weight: bold;
+    font-size: larger;
+    color: #000000d6;
+    letter-spacing: 0.1rem;
+}
+
