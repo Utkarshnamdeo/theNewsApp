@@ -1,0 +1,53 @@
+<div class="news-container" [ngStyle]="{'padding-right':(isHandset$ | async) ? '0px':'300px'}">
+  <div class="news-inner-container">
+    <div class="heads">
+      <span (click)="selectedHead = 'headlines'; populate()" [ngClass]="{'selected-head': selectedHead==='headlines'}">Top
+        Headlines
+      </span>
+      <span (click)="selectedHead = 'sources'; populate()" [ngClass]="{'selected-head': selectedHead==='sources'}">Sources
+      </span>
+    </div>
+    <div class="content" *ngIf="(selectedHead==='headlines')">
+      <ng-container *ngFor="let article of articles">
+        <app-news-card [data]="article"></app-news-card>
+      </ng-container>
+    </div>
+    <div class="content" *ngIf="selectedHead === 'sources'">
+      <div class="source-heading">
+        <p>Filer Sources by Country and Language.</p>
+      </div>
+      <div class="source-accordion">
+        <mat-accordion>
+          <ng-container *ngFor="let source of sources">
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  {{source.name}}
+                </mat-panel-title>
+                <mat-panel-description>
+                  {{find('language', source.language)}}
+                </mat-panel-description>
+                <mat-panel-description>
+                  {{find('country', source.country)}}
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              <p>{{source.description}}</p>
+              <div>
+                <button mat-raised-button (click)="selectSource(source)">Select</button>
+              </div>
+            </mat-expansion-panel>
+          </ng-container>
+        </mat-accordion>
+      </div>
+    </div>
+    <!-- <div class="spinner" *ngIf="isLoading"> -->
+    <!-- <mat-spinner></mat-spinner> -->
+    <!-- </div> -->
+    <div class="not-found" *ngIf="searchError">
+      <span>No result were found for this query.</span>
+    </div>
+    <div class="not-found" *ngIf="sourceError">
+      <span>No source macthing current filters.</span>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+.news-container {
+    .news-inner-container {
+        padding: 20px 0 0 0;
+        .heads {
+            padding: 10px;
+            span {
+                cursor: pointer;
+                padding: 10px;
+            }
+        }
+        .content {
+            .source-accordion {
+                padding: 20px;
+            }
+            .source-heading {
+                padding: 0 50px;
+                font-size: 1rem;
+            }
+        }
+        .spinner {
+            position: absolute;
+            top: 200px;
+            left: calc(50% - 50px);
+        }
+        .not-found {
+            padding: 20px 0 0 50px;
+            font-size: 2rem;
+        }
+    }
+}
+
+.selected-head {
+    cursor: auto !important;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0.1rem;
+    color: #00000080;
+}

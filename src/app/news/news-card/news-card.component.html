@@ -1,0 +1,51 @@
+<div class="news-card-container">
+  <div class="news-card-inner-container">
+    <div class="content" [ngStyle]="{'width': (isHandset$ | async) ? '100%' : 'calc(100% - 250px)'}">
+      <div class="title" *ngIf="!(isHandset$ | async)">
+        <span>{{data.title}}</span>
+      </div>
+      <div class="title-with-image" *ngIf="isHandset$ | async">
+        <div class="title">
+          <span>{{data.title}}</span>
+        </div>
+        <div class="image">
+          <img [src]="data.urlToImage" alt="">
+        </div>
+      </div>
+      <div class="publish-info">
+        <div class="published-at">
+          <span>{{data.publishedAt | date}}</span>
+        </div>
+        <div class="author" *ngIf="data.author">
+          <span>Author: </span>
+          <span>{{data.author}}</span>
+        </div>
+      </div>
+      <div class="description">
+        <p>{{data.description}}</p>
+      </div>
+      <div class="more-content" *ngIf="expandMore">
+        <p>{{data.content}}</p>
+      </div>
+      <div class="bottom">
+        <div class="source" *ngIf="data.source.name">
+          <a href="{{data.url}}">{{data.source.name}}</a>
+        </div>
+        <div class="spacer" *ngIf="!data.source.name"></div>
+        <div class="more-button" *ngIf="data.content">
+          <a *ngIf="!expandMore" (click)="expandMore = !expandMore">
+            <span>View more</span>
+            <mat-icon>expand_more</mat-icon>
+          </a>
+          <a *ngIf="expandMore" (click)="expandMore = !expandMore">
+            <span>View Less</span>
+            <mat-icon>expand_less</mat-icon>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="image" *ngIf="!(isHandset$ | async)">
+      <img [src]="data.urlToImage" alt="">
+    </div>
+  </div>
+</div>

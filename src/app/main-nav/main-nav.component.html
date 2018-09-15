@@ -1,0 +1,65 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="false" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [ngStyle]="{'width': (isHandset$ | async) ? '250px' : '300px'}"
+    [opened]="!(isHandset$ | async)">
+    <mat-nav-list class="side-nav-list">
+      <a mat-list-item *ngFor="let filter of selectedFilters">
+        <span *ngIf="filter.title">{{filter.title}}</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="app-toolbar" color="primary">
+      <div class="toolbar-toggle-button" *ngIf="!showSearchField" [ngClass]="{'hidden': !(isHandset$ | async)}">
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+      </div>
+      <div class="back-to-toolbar-button" *ngIf="showSearchField">
+        <button mat-button (click)="showSearchField = !showSearchField">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+      </div>
+      <div class="toolbar-content">
+        <div class="app-logo" *ngIf="!showSearchField">
+          <span *ngIf="!(isHandset$ | async)">TheNewsApp</span>
+          <span *ngIf="(isHandset$ | async)">TNA</span>
+        </div>
+        <div *ngIf="(isHandset$ | async) && !showSearchField">
+          <button mat-button>
+            <mat-icon (click)="search();showSearchField = !showSearchField">search</mat-icon>
+          </button>
+        </div>
+        <div class="search-field" [ngStyle]="getSearchBarWidth()" *ngIf="showSearchField || !(isHandset$ | async)">
+          <mat-form-field class="search-form-field" appearance="outline" [floatLabel]="'never'">
+            <mat-label>Search</mat-label>
+            <input matInput type="text" placeholder="Search" [(ngModel)]="searchQuery" (keyup.enter)="search()">
+            <button mat-button *ngIf="searchQuery" matSuffix mat-icon-button aria-label="Clear" (click)="searchQuery='';search()">
+              <mat-icon>close</mat-icon>
+            </button>
+          </mat-form-field>
+        </div>
+        <div class="filter-buttons" *ngIf="!showSearchField">
+          <div class="country-filter">
+            <button mat-button (click)="openDialog()">
+              <ng-container *ngIf="!selectedCountry">
+                <div class="filter-item-title">
+                  Country: All
+                </div>
+              </ng-container>
+              <ng-container *ngIf="selectedCountry">
+                <div *ngIf="selectedCountry.image" class="filter-item-image">
+                  <img [src]="selectedCountry.image" alt="flag">
+                </div>
+                <div class="filter-item-title">
+                  {{selectedCountry.title}}
+                </div>
+              </ng-container>
+            </button>
+          </div>
+        </div>
+      </div>
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

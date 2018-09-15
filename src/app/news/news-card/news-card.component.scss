@@ -1,0 +1,82 @@
+.news-card-container {
+    border: 1px solid #c1c1c1;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 20px;
+    .news-card-inner-container {
+        display: flex;
+        justify-content: space-between;
+        .content {
+            .title {
+                font-family: 'Open Sans';
+                font-weight: 600;
+                font-size: 1.2rem;
+                padding: 0 10px;
+            }
+            .title-with-image {
+
+                display: flex;
+                justify-content: space-between;
+                .title {
+                    padding: 0 10px;
+                    font-family: 'Open Sans';
+                    font-weight: 600;
+                    font-size: 1.2rem;
+                }
+                .image {
+                    img {
+                        height: 120px;
+                        width: 120px;
+                        overflow: hidden;
+                        border-radius: 20px;
+                    }
+                }   
+            }
+            .publish-info {
+                padding: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                font-family: 'Open Sans';
+                font-weight: 600;
+                font-size: 0.7rem;
+            }
+            .description, .more-content {
+                padding: 0 10px;
+            }
+            .bottom {
+                padding: 10px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                .source {
+                    a {
+                        color: #7c49c7;
+                        text-decoration: none;
+                        font-weight: bold;
+                        cursor: pointer;
+                    }
+                }
+                .more-button {
+                    a {
+                        display: flex;
+                        font-size: 0.8rem; 
+                        cursor: pointer;
+                        span {
+                            align-self: center;
+                            font-size: 0.8rem;
+                        }
+                    }
+                }
+            }
+        }
+        .image {
+            img {
+                height: 150px;
+                width: 200px;
+                overflow: hidden;
+                border-radius: 20px;
+            }
+        }
+    }
+}
