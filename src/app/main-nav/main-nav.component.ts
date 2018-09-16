@@ -3,7 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { MatDialog } from '@angular/material';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Countries } from '../data';
+import { Countries, Languages } from '../data';
 import { FilterDialogComponent } from '../filter-dialog/filter-dialog.component';
 import { AppService } from '../app.service';
 @Component({
@@ -17,10 +17,9 @@ export class MainNavComponent implements OnInit {
 
   selectedFilters = this.appService.filters;
 
-
   /* data models */
   searchQuery = '';
-  selectedCountry = { title: 'Colombia', code: 'co', image: 'https://newsapi.org/images/flags/co.svg' };
+  selectedCountry = { title: 'United States', code: 'us', image: 'https://newsapi.org/images/flags/us.svg' };
   selectedLanguage = '';
   selectedSource = '';
   selectedCategory = '';
@@ -34,7 +33,12 @@ export class MainNavComponent implements OnInit {
     {
       title: 'source',
       key: 'source',
-      items: []
+      items: this.appService.SourcesArray
+    },
+    {
+      title: 'language',
+      key: 'language',
+      items: Languages
     }
   ];
 
@@ -54,10 +58,12 @@ export class MainNavComponent implements OnInit {
   ngOnInit () {
   }
 
-  openDialog (): void {
+  openDialog (key): void {
     const dialogRef = this.dialog.open(FilterDialogComponent, {
       width: '500px',
-      data: this.filterButtons[0]
+      data: this.filterButtons.find(item => {
+        return item.key === key;
+      })
     });
 
     dialogRef.afterClosed().subscribe(result => {

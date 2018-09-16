@@ -46,7 +46,7 @@ export class NewsComponent implements OnInit, OnChanges {
     });
 
     /* setting initially selcted country */
-    this.appService.setFilters({ key: 'country', code: 'co', param: 'country=co&', title: 'Colombia' });
+    this.appService.setFilters({ key: 'country', code: 'us', param: 'country=us&', title: 'United States' });
     this.appService.setFilters({ key: 'language', code: 'en', param: 'language=en&', title: 'English' });
     /* update filters for pre population */
     this.appService.updateFilters();
@@ -92,6 +92,7 @@ export class NewsComponent implements OnInit, OnChanges {
       }
       this.sourceError = false;
       this.sources = value.sources;
+      this.appService.SourcesArray = value.sources;
     }, err => {
       console.log(err);
     });
