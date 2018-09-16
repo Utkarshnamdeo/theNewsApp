@@ -3,7 +3,7 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [ngStyle]="{'width': (isHandset$ | async) ? '250px' : '300px'}"
     [opened]="!(isHandset$ | async)">
     <mat-nav-list class="side-nav-list">
-      <a mat-list-item *ngFor="let filter of selectedFilters">
+      <a mat-list-item *ngFor="let filter of selectedFilters" (click)="openDialog(filter.key)">
         <span *ngIf="filter.title">{{filter.title}}</span>
       </a>
     </mat-nav-list>
@@ -21,7 +21,7 @@
         </button>
       </div>
       <div class="toolbar-content">
-        <div class="app-logo" *ngIf="!showSearchField">
+        <div class="app-logo" routerLink="/news" *ngIf="!showSearchField">
           <span *ngIf="!(isHandset$ | async)">TheNewsApp</span>
           <span *ngIf="(isHandset$ | async)">TNA</span>
         </div>
@@ -41,7 +41,7 @@
         </div>
         <div class="filter-buttons" *ngIf="!showSearchField">
           <div class="country-filter">
-            <button mat-button (click)="openDialog()">
+            <button mat-button (click)="openDialog('country')">
               <ng-container *ngIf="!selectedCountry">
                 <div class="filter-item-title">
                   Country: All

@@ -10,6 +10,7 @@ import { Subject } from 'rxjs/';
 export class AppService {
 
   filters: any = [];
+  SourcesArray: any = [];
 
   private filtersUpdatedSource = new Subject<any>();
   public isFilterUpdated$ = this.filtersUpdatedSource.asObservable();

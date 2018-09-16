@@ -4,7 +4,16 @@
     width: 250px;
     top: 80px;
     .side-nav-list {
-      padding-top: 70px;
+      a {
+        border-top-right-radius: 25px;
+        font-size: 1.2rem;
+        overflow: hidden;
+        color: #075b9c;
+        border-bottom-right-radius: 25px;
+        &:hover {
+          background: #DCEEFC;
+        }
+      }
     }
   }
   .app-toolbar {
@@ -24,6 +33,7 @@
       width: calc(100% - 50px);
       .app-logo {
         display: flex;
+        cursor: pointer;
         span{
           font-family: 'Open Sans';
           font-weight: 600;

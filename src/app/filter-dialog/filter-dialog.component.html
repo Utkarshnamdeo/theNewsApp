@@ -5,7 +5,7 @@
   <div class="list">
     <div class="each-item" [ngStyle]="{'width': (isHandset$ | async) ? '50%' : '33%'}" *ngFor="let item of data.items">
       <button mat-button class="item-button" (click)="selectItem(item, data.key)">
-        <span class="image">
+        <span *ngIf="item.image" class="image">
           <img style="height:12px; width:12px" [src]="item.image" alt="flag">
         </span>
         <span class="title">
