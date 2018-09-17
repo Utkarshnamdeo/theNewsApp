@@ -1,8 +1,12 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="false" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [ngStyle]="{'width': (isHandset$ | async) ? '250px' : '300px', 'margin-top': (isHandset$ | async) ? '0': '10px'}"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [ngStyle]="{'width': (isHandset$ | async) ? '250px' : '300px', 'margin-top': (isHandset$ | async) ? '-86px': '10px'}"
     [opened]="!(isHandset$ | async)">
     <mat-nav-list class="side-nav-list">
+      <div *ngIf="(isHandset$ | async)" class="app-logo" routerLink="/news">
+        <span>The News App</span>
+        <!-- <span *ngIf="(isHandset$ | async)">TNA</span> -->
+      </div>
       <ng-container *ngFor="let filter of selectedFilters">
         <a mat-list-item *ngIf="filter.key !== 'q'" (click)="openDialog(filter.key)">
           <div class="title" *ngIf="filter.title">{{filter.title}}</div>

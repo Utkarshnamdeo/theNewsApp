@@ -8,6 +8,19 @@
       visibility: hidden !important;
     }
     .side-nav-list {
+      .app-logo {
+        display: flex;
+        cursor: pointer;
+        height: 58px;
+        padding: 10px 20px;
+        color: #7c49c7;
+        span{
+          font-family: 'Open Sans';
+          font-weight: 800;
+          letter-spacing: 0.2rem;
+          align-self: center;
+        }
+      }
       a {
         border-top-right-radius: 5px;
         font-size: 1.2rem;
@@ -18,15 +31,18 @@
           background: #DCEEFC;
           .close-button {
             display: block;
+            button {
+              background: #DCEEFC;
+            }
           }
         }
         &::ng-deep .mat-list-item-content {
           display: flex;
           justify-content: space-between;
           .close-button {
-            display: none;
+            // display: none;
             button {
-                background: #DCEEFC;
+                background: #fff;
                 box-shadow: none;
                 color: #075b9c;
               }
@@ -62,7 +78,6 @@
           letter-spacing: 0.2rem;
           align-self: center;
         }
-        
       }
       .search-field {
         width: 40%;
@@ -109,7 +124,10 @@
 .hidden {
   display: none;
 }
-.mat-drawer-container {
+/deep/.mat-drawer-container {
   background-color: #fff;
-  color: rgba(0,0,0,.87);
+  // color: rgba(0,0,0,.87);
+}
+/deep/.mat-drawer-backdro, .mat-drawer-shown {
+  visibility: visible !important;
 }
