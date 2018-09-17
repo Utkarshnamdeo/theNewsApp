@@ -34,6 +34,12 @@ export class AppService {
           this.filters.splice(this.filters.indexOf(item), 1);
         });
       }
+      const exists = this.filters.find(item => {
+        return item.key === req.key;
+      });
+      if (exists) {
+        this.filters.splice(this.filters.indexOf(exists), 1);
+      }
       this.filters.push(req);
     } else {
       const exists = this.filters.find(item => {

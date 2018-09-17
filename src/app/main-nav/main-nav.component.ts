@@ -19,7 +19,7 @@ export class MainNavComponent implements OnInit {
 
   /* data models */
   searchQuery = '';
-  selectedCountry = { title: 'United States', code: 'us', image: 'https://newsapi.org/images/flags/us.svg' };
+  selectedCountry: any = { title: 'United States', code: 'us', image: 'https://newsapi.org/images/flags/us.svg' };
   selectedLanguage = '';
   selectedSource = '';
   selectedCategory = '';
@@ -88,7 +88,22 @@ export class MainNavComponent implements OnInit {
     this.appService.updateFilters();
   }
 
+  deselectFilter (key, e?) {
+    e.stopPropagation();
+    const found = this.appService.filters.find(item => {
+      return item.key === key;
+    });
+    this.appService.filters.splice(this.appService.filters.indexOf(found), 1);
+    if (key === 'country') {
+      this.selectedCountry = '';
+    }
+    this.appService.updateFilters();
+  }
+
   search () {
+    if (!this.searchQuery) {
+      return this.deselectFilter('q');
+    }
     this.setFilters('q', this.searchQuery);
   }
 

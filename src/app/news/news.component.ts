@@ -70,7 +70,7 @@ export class NewsComponent implements OnInit, OnChanges {
   }
 
   getAllHeadlines (filters) {
-    const params = filters.map(v => v.param).reduce((a, b) => a + b);
+    const params = filters.length ? filters.map(v => v.param).reduce((a, b) => a + b) : '';
     this.articles = [];
     this.subscribers.getAllHeadlines = this.newsService.getTopHeadings(params).subscribe((value: any) => {
       if (value.status === 'error' || (value.articles && !value.articles.length)) {
@@ -79,7 +79,8 @@ export class NewsComponent implements OnInit, OnChanges {
       this.searchError = false;
       this.articles = value.articles;
     }, err => {
-      console.log(err);
+      // console.log(err);
+      return this.searchError = true;
     });
   }
 

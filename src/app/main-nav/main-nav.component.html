@@ -1,11 +1,18 @@
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav #drawer class="sidenav" fixedInViewport="false" [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [ngStyle]="{'width': (isHandset$ | async) ? '250px' : '300px'}"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [ngStyle]="{'width': (isHandset$ | async) ? '250px' : '300px', 'margin-top': (isHandset$ | async) ? '0': '10px'}"
     [opened]="!(isHandset$ | async)">
     <mat-nav-list class="side-nav-list">
-      <a mat-list-item *ngFor="let filter of selectedFilters" (click)="openDialog(filter.key)">
-        <span *ngIf="filter.title">{{filter.title}}</span>
-      </a>
+      <ng-container *ngFor="let filter of selectedFilters">
+        <a mat-list-item *ngIf="filter.key !== 'q'" (click)="openDialog(filter.key)">
+          <div class="title" *ngIf="filter.title">{{filter.title}}</div>
+          <div class="close-button" *ngIf="filter.key !== 'language'" (click)="deselectFilter(filter.key, $event)">
+            <button mat-mini-fab>
+              <mat-icon>close</mat-icon>
+            </button>
+          </div>
+        </a>
+      </ng-container>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -22,7 +29,7 @@
       </div>
       <div class="toolbar-content">
         <div class="app-logo" routerLink="/news" *ngIf="!showSearchField">
-          <span *ngIf="!(isHandset$ | async)">TheNewsApp</span>
+          <span *ngIf="!(isHandset$ | async)">The News App</span>
           <span *ngIf="(isHandset$ | async)">TNA</span>
         </div>
         <div *ngIf="(isHandset$ | async) && !showSearchField">
@@ -34,7 +41,7 @@
           <mat-form-field class="search-form-field" appearance="outline" [floatLabel]="'never'">
             <mat-label>Search</mat-label>
             <input matInput type="text" placeholder="Search" [(ngModel)]="searchQuery" (keyup.enter)="search()">
-            <button mat-button *ngIf="searchQuery" matSuffix mat-icon-button aria-label="Clear" (click)="searchQuery='';search()">
+            <button mat-button *ngIf="searchQuery" matSuffix mat-icon-button aria-label="Clear" (click)="searchQuery='';deselectFilter('q')">
               <mat-icon>close</mat-icon>
             </button>
           </mat-form-field>
