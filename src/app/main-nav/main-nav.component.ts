@@ -89,7 +89,9 @@ export class MainNavComponent implements OnInit {
   }
 
   deselectFilter (key, e?) {
-    e.stopPropagation();
+    if (e) {
+      e.stopPropagation();
+    }
     const found = this.appService.filters.find(item => {
       return item.key === key;
     });
