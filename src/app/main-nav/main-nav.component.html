@@ -38,7 +38,7 @@
         </div>
         <div *ngIf="(isHandset$ | async) && !showSearchField">
           <button mat-button>
-            <mat-icon (click)="search();showSearchField = !showSearchField">search</mat-icon>
+            <mat-icon (click)="showSearchField = !showSearchField">search</mat-icon>
           </button>
         </div>
         <div class="search-field" [ngStyle]="getSearchBarWidth()" *ngIf="showSearchField || !(isHandset$ | async)">
