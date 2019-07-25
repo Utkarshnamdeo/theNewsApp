@@ -4,7 +4,7 @@
 
 NEWS API [News API](https://newsapi.org)
 
-The Application is created in [Angular 7.2.12](https://angular.io) (Javascript Framework)
+The Application is created in [Angular 8.1.2](https://angular.io) (Javascript Framework)
 Modules are lazy loaded.
 
 # Demo
@@ -13,7 +13,7 @@ TNA [The News App](https://utkarshnamdeo.github.io/theNewsApp/)
 
 ## Libraries Used
 
-Angular Material [Angular Material 7.3.7](https://material.angular.io)
+Angular Material [Angular Material 8.1.1](https://material.angular.io)
 
 ## Development server
 

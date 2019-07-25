@@ -1,31 +1,31 @@
 .dialog-main-container {
-    .head {
-        padding: 0 15px;
-        text-transform: capitalize;
-    }
-    .list {
-        display: flex;
-        max-width: 500px;
-        flex-wrap: wrap;
-        max-height: 500px;
-        min-height: auto;
-        .each-item {
-            width: 33%;
-            .item-button {
-                width: 100%;
-                /deep/.mat-button-wrapper {
-                    width: 100%;
-                    display: flex;
-                    justify-content: space-between;
-                    .image {
-                        img {
-                            height: 12px;
-                            width: 12px;
-                            align-self: center;
-                        }
-                    }
-                }
+  .head {
+    padding: 0 15px;
+    text-transform: capitalize;
+  }
+  .list {
+    display: flex;
+    max-width: 500px;
+    flex-wrap: wrap;
+    max-height: 500px;
+    min-height: auto;
+    .each-item {
+      width: 33%;
+      .item-button {
+        width: 100%;
+        .mat-button-wrapper {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          .image {
+            img {
+              height: 12px;
+              width: 12px;
+              align-self: center;
             }
+          }
         }
+      }
     }
+  }
 }

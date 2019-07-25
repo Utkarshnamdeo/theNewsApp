@@ -1,30 +1,30 @@
 .main-container {
-    overflow-y: auto;
-    height: 100%;
-    margin-top: 80px;
-    .inner-container {
-        /deep/.mat-tab-group {
-            /deep/.mat-tab-header {
-                border:0;
-            }
-        }
+  overflow-y: auto;
+  height: 100%;
+  margin-top: 80px;
+  .inner-container {
+    .mat-tab-group {
+      .mat-tab-header {
+        border: 0;
+      }
     }
-}
-/deep/.mat-ink-bar {
-    display: none;
+  }
 }
 
-/deep/.mat-tab-label {
-    font-weight: bold;
-    font-size: larger;
-    color: #00000070;
-    letter-spacing: 0.1rem;        
+.mat-ink-bar {
+  display: none;
 }
 
-/deep/.mat-tab-label-active {
-    font-weight: bold;
-    font-size: larger;
-    color: #000000d6;
-    letter-spacing: 0.1rem;
+.mat-tab-label {
+  font-weight: bold;
+  font-size: larger;
+  color: #00000070;
+  letter-spacing: 0.1rem;
 }
 
+.mat-tab-label-active {
+  font-weight: bold;
+  font-size: larger;
+  color: #000000d6;
+  letter-spacing: 0.1rem;
+}
