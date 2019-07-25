@@ -4,7 +4,7 @@
     width: 250px;
     top: 80px;
     margin-top: 10px;
-    /deep/.mat-drawer-shown {
+    .mat-drawer-shown {
       visibility: hidden !important;
     }
     .side-nav-list {
@@ -14,7 +14,7 @@
         height: 58px;
         padding: 10px 20px;
         color: #7c49c7;
-        span{
+        span {
           font-family: 'Open Sans';
           font-weight: 800;
           letter-spacing: 0.2rem;
@@ -28,11 +28,11 @@
         color: #075b9c;
         border-bottom-right-radius: 5px;
         &:hover {
-          background: #DCEEFC;
+          background: #dceefc;
           .close-button {
             display: block;
             button {
-              background: #DCEEFC;
+              background: #dceefc;
             }
           }
         }
@@ -42,18 +42,18 @@
           .close-button {
             // display: none;
             button {
-                background: #fff;
-                box-shadow: none;
-                color: #075b9c;
-              }
-              
+              background: #fff;
+              box-shadow: none;
+              color: #075b9c;
+            }
           }
-        } 
+        }
       }
     }
   }
   .app-toolbar {
-    box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14),
+      0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
     height: 80px;
     position: fixed;
     left: 0;
@@ -72,7 +72,7 @@
       .app-logo {
         display: flex;
         cursor: pointer;
-        span{
+        span {
           font-family: 'Open Sans';
           font-weight: 800;
           letter-spacing: 0.2rem;
@@ -86,7 +86,7 @@
           &::ng-deep .mat-form-field-wrapper {
             padding: 0;
             margin: 0;
-            &::ng-deep .mat-form-field-flex{
+            &::ng-deep .mat-form-field-flex {
               &::ng-deep .mat-form-field-infix {
                 padding: 0.7rem 0;
               }
@@ -102,12 +102,12 @@
           cursor: pointer;
           &::ng-deep .mat-button {
             &::ng-deep .mat-button-wrapper {
-              display:flex;
+              display: flex;
               .filter-item-image {
                 padding: 0 5px 0 0;
                 img {
-                  width:12px;
-                  height:12px;
+                  width: 12px;
+                  height: 12px;
                 }
               }
               .filter-item-title {
@@ -124,10 +124,11 @@
 .hidden {
   display: none;
 }
-/deep/.mat-drawer-container {
+.mat-drawer-container {
   background-color: #fff;
   // color: rgba(0,0,0,.87);
 }
-/deep/.mat-drawer-backdro, .mat-drawer-shown {
+.mat-drawer-backdro,
+.mat-drawer-shown {
   visibility: visible !important;
 }
