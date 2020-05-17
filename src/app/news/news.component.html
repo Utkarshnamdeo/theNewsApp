@@ -1,10 +1,12 @@
 <div class="news-container" [ngStyle]="{'padding-right':(isHandset$ | async) ? '0px':'300px'}">
   <div class="news-inner-container">
     <div class="heads">
-      <span (click)="selectedHead = 'headlines'; populate()" [ngClass]="{'selected-head': selectedHead==='headlines'}">Top
+      <span (click)="selectedHead = 'headlines'; populate()"
+        [ngClass]="{'selected-head': selectedHead==='headlines'}">Top
         Headlines
       </span>
-      <span (click)="selectedHead = 'sources'; populate()" [ngClass]="{'selected-head': selectedHead==='sources'}">Sources
+      <span (click)="selectedHead = 'sources'; populate()"
+        [ngClass]="{'selected-head': selectedHead==='sources'}">Sources
       </span>
     </div>
     <div class="content" *ngIf="(selectedHead==='headlines')">
@@ -40,9 +42,6 @@
         </mat-accordion>
       </div>
     </div>
-    <!-- <div class="spinner" *ngIf="isLoading"> -->
-    <!-- <mat-spinner></mat-spinner> -->
-    <!-- </div> -->
     <div class="not-found" *ngIf="searchError">
       <div>No result were found.</div>
       <div>Try selecting / deselecting Country </div>
